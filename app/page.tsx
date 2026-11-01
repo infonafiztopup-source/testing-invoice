@@ -31,7 +31,7 @@ export default function Admin() {
 
   return (
     <div className="wrap wide">
-      <h1>Invoice Test</h1><p className="muted">টেস্টিং এর জন্য — invoice বানান, payment number যোগ করুন</p>
+      <h1>Invoice Test</h1><p className="muted">টেস্টিং এর জন্য — invoice বানান, payment number যোগ করুন · <a href="/setup"><b>App setup</b></a></p>
 
       <h2>Payment numbers</h2>
       <div className="box">

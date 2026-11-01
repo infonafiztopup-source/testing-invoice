@@ -7,3 +7,5 @@
 5. Pay the invoice amount to your number, enter the TrxID on the pay page, press Verify. A match needs the same TrxID, the same amount and the same provider.
 
 Local: `npm i && cp .env.example .env.local && npm run dev`
+
+App setup page: `/setup` shows the webhook URL, env/database status, a test ping, a fake SMS sender and recent payments.
