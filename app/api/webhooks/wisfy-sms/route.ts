@@ -1,11 +1,8 @@
-import { timingSafeEqual } from "crypto";
 import { db } from "@/lib/supabase";
+import { authorize } from "@/lib/wisfy-auth";
 
 export async function POST(req: Request) {
-  const token = (req.headers.get("authorization") || "").replace(/^Bearer\s+/i, "");
-  const a = Buffer.from(token), b = Buffer.from(process.env.WISFY_SECRET_TOKEN || "");
-  if (!b.length || a.length !== b.length || !timingSafeEqual(a, b))
-    return Response.json({ error: "unauthorized" }, { status: 401 });
+  if (!(await authorize(req))) return Response.json({ error: "unauthorized" }, { status: 401 });
 
   const p = await req.json();
   const c = p.payment_candidate;
